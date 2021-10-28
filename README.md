@@ -3,3 +3,9 @@
 2. greedy : 그리디 알고리즘
 3. brute-force : 완전탐색 알고리즘
 4. simulation : 시뮬레이션 알고리즘
+5. dfs-bfs : DFS 와 BFS
+
+
+### 참고 자료
+>이것이 취업을 위한 코딩 테스트다 with 파이썬 - 나동빈
+>https://github.com/ndb796/python-for-coding-test
