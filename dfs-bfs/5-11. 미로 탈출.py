@@ -6,7 +6,7 @@ graph = [list(map(int, input().split())) for _ in range(n)]
 dx = [0, 1, 0, -1]
 dy = [1, 0, -1, 0]
 
-
+# bfs는 연결된 노드부터 탐색하므로 최소 루트 문제에 적합
 def bfs(x, y):
     queue = deque()
     queue.append((x, y))
