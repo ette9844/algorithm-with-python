@@ -1,11 +1,35 @@
 {
   "files": {
+    "main.py": [
+      {
+        "id": "8380fb36-5584-4eae-857a-6787d323978e",
+        "line": 17,
+        "version": 4523,
+        "index": 392
+      }
+    ],
     "simulation/4-3-knight.py": [
       {
         "id": "d798699f-2e94-4a3a-90a0-b440af99e8c7",
         "line": 17,
         "version": 1,
         "index": 319
+      }
+    ],
+    "sort/6-11. 성적이 낮은 순서로 학생 출력하기.py": [
+      {
+        "id": "46436fc2-2299-4544-ae35-c7ed7ffb4ff7",
+        "line": 6,
+        "version": 484,
+        "index": 84
+      }
+    ],
+    "sort/6-12. 두 배열의 원소 교체": [
+      {
+        "id": "3afab512-1b0c-4dbd-9e17-48842f550d7d",
+        "line": 1,
+        "version": 0,
+        "index": 0
       }
     ]
   }

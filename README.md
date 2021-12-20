@@ -4,6 +4,8 @@
 3. brute-force : 완전탐색 알고리즘
 4. simulation : 시뮬레이션 알고리즘
 5. dfs-bfs : DFS 와 BFS
+6. sort : 정렬 알고리즘
+7. binary-search : 이진 탐색
 
 
 ### 참고 자료
