@@ -6,6 +6,7 @@
 5. dfs-bfs : DFS 와 BFS
 6. sort : 정렬 알고리즘
 7. binary-search : 이진 탐색
+8. dynamic-programming : 다이나믹 프로그래밍
 
 
 ### 참고 자료
