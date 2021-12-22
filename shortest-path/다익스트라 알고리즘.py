@@ -1,0 +1,79 @@
+"""
+Dijkstra = 다익스트라 = 데이크스트라
+그래프에 여러 개의 노드가 있을 때, 특정한 노드에서 출발하여 다른 노드로 가는 각각의 최단 경로를 구하는 알고리즘
+음의 간선이 없을 때 사용 가능
+
+가장 비용이 적은 노드를 선택해서 임의의 과정을 반복하기 때문에 그리디 알고리즘으로 분류됨
+
+<원리>
+1. 출발 노드 설정
+2. 최단 거리 테이블 초기화
+3. 방문하지 않은 노드 중에서 최단 거리가 가장 짧은 노드를 선택
+4. 해당 노드를 거쳐 다른 노드로 가는 비용을 계산하여 최단 거리 테이블 갱신
+5. 3~4번 반복
+
+한 루프당 하나의 노드에 대한 최단 거리를 확실히 찾는다.
+"""
+
+# 1. 간단한 다익스트라 알고리즘
+"""
+시간 복잡도: O(V^2) V-노드 수
+단계 마다 방문하지 않은 노드 중 최단 거리가 가장 짧은 노드를 선택하기 위해 1차원 리스트의 모든 원소를 순차 탐색
+
+노드 수가 5000개 이하일 때 시간 제약 내 문제 해결 가능
+노드 개수 및 간선의 개수가 많을 경우 개선된 다익스트라 알고리즘을 사용해야 함
+"""
+import sys
+# 입력 데이터가 많을 시 sys.stdin.readline 으로 input 함수를 치환
+input = sys.stdin.readline
+INF = int(1e9)
+
+# 노드 수, 간선 수, 시작 노드 입력
+n, m = map(int, input().split())
+start = int(input())
+# 각 노드에 연결되어있는 노드에 대한 정보를 담는 리스트
+graph = [[] for i in range(n + 1)]
+visited = [False] * (n + 1) # 방문 여부 체크
+distance = [INF] * (n + 1) # 최단 거리 테이블
+
+for _ in range(m):
+  a, b, c = map(int, input().split())
+  # a노드에서 b노드로 가는 비용은 c
+  graph[a].append((b, c))
+
+# 방문하지 않은 노드 중에서, 최단 거리가 짧은 노드 반환
+def get_smallest_node():
+  min_value = INF
+  index = 0 # 가장 최단 거리가 짧은 노드(인덱스)
+  for i in range(1, n + 1):
+    if distance[i] < min_value and not visited[i]:
+      min_value = distance[i]
+      index = i
+  return index
+
+def dijkstra(start):
+  # 시작 노드에 대해서 초기화
+  distance[start] = 0
+  visited[start] = True
+  for j in graph[start]:
+    # j[0]=목적지 노드 j[1]=비용
+    distance[j[0]] = j[1]
+  # 시작 노드를 제외한 전체 n - 1개의 노드에 대해 반복
+  for i in range(n - 1):
+    # 현재 최단 거기가 가장 짧은 노드를 꺼내서 방문처리
+    now = get_smallest_node()
+    visited[now] = True
+    # 현재 노드와 연결된 다른 노드 확인
+    for j in graph[now]:
+      cost = distance[now] + j[1]
+      # 현재 노드를 거쳐서 다른 노드로 이동하는 거리가 더 짧을 경우
+      if cost < distance[j[0]]:
+        distance[j[0]] = cost
+
+dijkstra(start)
+
+for i in range(1, n + 1):
+  if distance[i] == INF:
+    print("INFINITY") # 도달 불가
+  else:
+    print(distance[i]) # 도달 가능

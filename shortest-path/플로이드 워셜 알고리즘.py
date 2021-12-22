@@ -1,0 +1,59 @@
+"""
+Floyd-Warshall algorithm
+모든 지점에서 다른 모든 지점까지의 최단 경로를 모두 구해야하는 경우에 사용되는 알고리즘
+다이나믹 프로그래밍
+
+시간 복잡도: O(N^3)
+
+<점화식>
+Dab = min(Dab, Dak + Dkb)
+A에서 B로 가는 최소 비용과 A에서 K를 거쳐 B로 가는 비용 중 작은 값으로 갱신
+"""
+
+INF = int(1e9)
+
+n = int(input())
+m = int(input())
+graph = [[INF] * (n + 1) for _ in range(0, n + 1)]
+
+# 자기 자신으로 가는 비용은 0으로 초기화
+for a in range(1, n + 1):
+  graph[a][a] = 0
+
+# 각 간선에 대한 정보 입력 받기
+for _ in range(m):
+  a, b, c = map(int, input().split())
+  graph[a][b] = c
+
+# 점화식 수행
+for k in range(1, n + 1):
+  for a in range(1, n + 1):
+    for b in range(1, n + 1):
+      graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+for a in range(1, n + 1):
+  for b in range(1, n + 1):
+    if graph[a][b] == INF:
+      print("INFINITY", end=" ")
+    else:
+      print(graph[a][b], end=" ")
+  print()
+
+"""
+입력 예시
+4
+7
+1 2 4
+1 4 6
+2 1 3
+2 3 7
+3 1 5
+3 4 4
+4 3 2
+
+출력 예시
+0 4 8 6
+3 0 7 9
+5 9 0 4
+7 11 2 0
+"""

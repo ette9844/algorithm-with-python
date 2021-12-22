@@ -7,7 +7,7 @@
 6. sort : 정렬 알고리즘 (선택, 삽입, 퀵, 계수)
 7. binary-search : 순차 탐색, 이진 탐색
 8. dynamic-programming : 다이나믹 프로그래밍
-9. path: 최단 경로
+9. shortest-path: 최단 경로 (다익스트라, 플로이드 워셜)
 
 
 ### 참고 자료
