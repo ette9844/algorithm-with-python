@@ -1,4 +1,4 @@
-# 문제 정보: p119 게임 개발
+ # 문제 정보: p119 게임 개발
 n, m = map(int, input().split())
 x, y, d = map(int, input().split())
 map = [list(map(int, input().split())) for _ in range(n)]

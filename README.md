@@ -8,6 +8,7 @@
 7. binary-search : 순차 탐색, 이진 탐색
 8. dynamic-programming : 다이나믹 프로그래밍
 9. shortest-path: 최단 경로 (다익스트라, 플로이드 워셜)
+10. graph: 그래프 이론 (서로소 집합, )
 
 
 ### 참고 자료
